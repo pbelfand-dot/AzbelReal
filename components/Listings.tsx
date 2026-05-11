@@ -7,40 +7,72 @@ const listings = [
     id: 1,
     address: "2928 W 5th St, APT 9H",
     city: "Brooklyn, NY 11224",
-    neighborhood: "Coney Island",
-    price: 285000,
-    beds: 2,
+    neighborhood: "Coney Island · Trump Village 4",
+    price: 320000,
+    beds: 1,
     baths: 1,
-    sqft: 850,
-    maintenance: 685,
-    taxes: 0,
+    sqft: 750,
+    maintenance: 854,
+    maintenanceNote: "Includes ALL utilities (electric, gas, water, heat, taxes)",
+    downPayment: "Only 10% down required",
     type: "Co-op",
     status: "For Sale",
-    features: ["Ocean Views", "Elevator Building", "Laundry in Building", "Near Subway (F/Q)", "Beach 2 Blocks Away", "Storage Unit"],
+    builtYear: 1964,
+    walkScore: 89,
+    bikeScore: 74,
+    agent: "Seman Belfand",
+    features: [
+      "Largest 1BR in Trump Village 4",
+      "Fully Renovated",
+      "9th Floor · Natural Light",
+      "24hr Doorman & Security",
+      "New Elevators",
+      "Children's Playground",
+      "Pets Welcome",
+      "Parking Available",
+      "Near Beach & Boardwalk",
+      "Only 10% Down Payment",
+    ],
     description:
-      "Stunning high-floor co-op with breathtaking ocean views in the heart of Coney Island. This bright and airy 2-bedroom unit features large windows that flood the space with natural light. Steps to the beach, boardwalk, and subway. An exceptional opportunity in one of Brooklyn's most beloved neighborhoods.",
+      "The biggest 1BR in Trump Village 4! Fully renovated, gorgeous, spacious and bright 750 sqft apartment with an overwhelming amount of natural light on the 9th floor. All separate rooms with plenty of closet space. Very well maintained complex with new elevators, Amazon package lockers, vending machines, recreation rooms, manicured lawns, and a great children's playground. Low maintenance of $853.59 includes ALL utilities — electricity, gas, water, heat, and taxes. Pets welcome. Conveniently located minutes to the beach, Coney Island boardwalk, amusement park, shopping, and trains.",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
-    badge: "Ocean Views",
+    badge: "Best Value",
     zillow: "https://www.zillow.com/homedetails/2928-W-5th-St-APT-9H-Brooklyn-NY-11224/245055298_zpid/",
   },
   {
     id: 2,
     address: "444 Neptune Ave, APT 9S",
     city: "Brooklyn, NY 11224",
-    neighborhood: "Coney Island",
-    price: 260000,
+    neighborhood: "Coney Island · Trump Village 3",
+    price: 350000,
     beds: 1,
     baths: 1,
-    sqft: 720,
-    maintenance: 620,
-    taxes: 0,
-    type: "Co-op",
+    sqft: 750,
+    maintenance: 774,
+    maintenanceNote: "Includes ALL utilities (electric, gas, water, heat, taxes)",
+    downPayment: "Contact for details",
+    type: "Stock Co-op",
     status: "For Sale",
-    features: ["High Floor", "Updated Kitchen", "Elevator Building", "Near Boardwalk", "F/Q Subway Access", "Doorman Building"],
+    builtYear: null,
+    walkScore: 85,
+    bikeScore: 78,
+    agent: "Minukha Fishman · 917-922-6010",
+    features: [
+      "9th Floor Ocean & Neptune Views",
+      "Large Balcony Facing Ocean",
+      "Completely Renovated",
+      "Custom Closets",
+      "Updated Bathroom",
+      "Open Wall Kitchen",
+      "24hr Security Lobby",
+      "Dogs Allowed (Board Approval)",
+      "Elevator Building",
+      "Near Beach & Boardwalk",
+    ],
     description:
-      "Beautifully updated 1-bedroom co-op on a high floor with sweeping views of the Coney Island neighborhood. Features a renovated kitchen, generous closet space, and a welcoming layout. Enjoy the vibrant Coney Island lifestyle — beach, boardwalk, Nathan's, and amusement parks all at your doorstep.",
+      "Trump Village Section 3 — completely renovated 1 bed / 1 bath apartment on the 9th floor, very sunny with a large balcony facing the ocean and Neptune Ave. Maintenance of $774/mo includes ALL utilities (electricity, gas, water, heat, taxes). Features perfectly organized custom closets, updated bathroom, and open-wall kitchen. Best location — just minutes from the beach, boardwalk, shopping, and transportation. 24-hour security lobby. Dogs allowed with board approval.",
     image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
-    badge: "Just Listed",
+    badge: "Ocean Views",
     zillow: "https://www.zillow.com/homedetails/444-Neptune-Ave-APT-9S-Brooklyn-NY-11224/250366291_zpid/",
   },
 ];
@@ -125,10 +157,20 @@ export default function Listings() {
                   ))}
                 </div>
 
+                {/* Agent */}
+                <p className="text-xs text-gray-400 mb-4">Listed by <span className="font-medium text-gray-600">{l.agent}</span> · Azbel Real Estate</p>
+
                 {/* Maintenance */}
-                <div className="flex justify-between items-center text-sm text-gray-500 border-t border-gray-100 pt-4 mb-5">
-                  <span>Monthly Maintenance</span>
-                  <span className="font-semibold text-gray-700">${l.maintenance}/mo</span>
+                <div className="border-t border-gray-100 pt-4 mb-2">
+                  <div className="flex justify-between items-center text-sm mb-1">
+                    <span className="text-gray-500">Monthly Maintenance</span>
+                    <span className="font-bold text-[#1B2B6B]">${l.maintenance}/mo</span>
+                  </div>
+                  <p className="text-xs text-green-600 font-medium">✓ {l.maintenanceNote}</p>
+                </div>
+                <div className="flex justify-between items-center text-sm text-gray-500 mb-5">
+                  <span>Down Payment</span>
+                  <span className="font-semibold text-[#C9A84C]">{l.downPayment}</span>
                 </div>
 
                 {/* CTA buttons */}

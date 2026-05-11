@@ -3,7 +3,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 
 export default function MortgageCalculator() {
-  const [price, setPrice] = useState(285000);
+  const [price, setPrice] = useState(320000);
   const [down, setDown] = useState(20);
   const [rate, setRate] = useState(7.1);
   const [years, setYears] = useState(30);
